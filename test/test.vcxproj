@@ -71,12 +71,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>E:\University\4-1\Code\env-monitor-sys\lib\mysql-connector-c++-9.0.0-winx64%28debug%29\include</IncludePath>
-    <LibraryPath>E:\University\4-1\Code\env-monitor-sys\lib\mysql-connector-c++-9.0.0-winx64%28debug%29\lib64\debug\vs14;E:\University\4-1\Code\env-monitor-sys\lib\mysql-connector-c++-9.0.0-winx64%28debug%29\lib64\vs14;$(LibraryPath)</LibraryPath>
+    <IncludePath>.\lib\mysql-connector-c++-9.0.0-winx64%28debug%29\include</IncludePath>
+    <LibraryPath>.\lib\mysql-connector-c++-9.0.0-winx64%28debug%29\lib64\debug\vs14;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ExternalIncludePath>E:\University\4-1\Code\env-monitor-sys\lib\mysql-connector-c++-9.0.0-winx64\include;$(ExternalIncludePath)</ExternalIncludePath>
-    <LibraryPath>E:\University\4-1\Code\env-monitor-sys\lib\mysql-connector-c++-9.0.0-winx64\lib64\vs14;$(LibraryPath)</LibraryPath>
+    <ExternalIncludePath>..\lib\mysql-connector-c++-9.0.0-winx64\include;$(ExternalIncludePath)</ExternalIncludePath>
+    <LibraryPath>..\lib\mysql-connector-c++-9.0.0-winx64\lib64\vs14;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

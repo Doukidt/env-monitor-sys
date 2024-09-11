@@ -32,7 +32,7 @@ export default defineComponent({
               title: ip,
               message: String(message),
               type: 'error',
-              duration: 8000, // 不自动关闭
+              duration: 6000, // 延时关闭
               offset: 40, // 根据索引设置偏移量
             });
 

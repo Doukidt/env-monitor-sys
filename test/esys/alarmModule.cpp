@@ -24,7 +24,7 @@ namespace ems {
 				std::string value = esys.getConfig(key);  
 
 				if (!value.empty()) {  
-					threshold[param] = std::stod(value);  
+					threshold[param] = std::stod(value);
 				}
 			}
 		}
@@ -68,19 +68,27 @@ namespace ems {
 			}
 			std::cout << "[alarmModule]: Alarm is atcive now at [" + clientIP + "]." << std::endl;
 			bool val_not_under_threshold_exist = false;
-			std::stringstream ss;
+			
 			for (auto& it : alarm_active_message[clientIP]) {
 				if (it.second >= threshold[it.first]) {
 					val_not_under_threshold_exist = true;
+					std::stringstream ss;
 					ss << "[alarmModule]: " + it.first + suffix_of_collected_values + " is at " << it.second
-						<< ", which is should be under " << threshold[it.first] << "." << std::endl;
+						<< ", which is should be under " << threshold[it.first] << ".";
+					alarmMessage = ss.str();
+					ss << std::endl;
+					std::cout << ss.str();
 				}
 			}
 			if (!val_not_under_threshold_exist) {
+				std::stringstream ss;
 				ss << "[alarmModule]: No collected data exceeds the threshold, " <<
-					"but the alarm lock needs to ensure at least "<< alarm_lock_duration_seconds << " seconds of alarm time." << std::endl;
+					"but the alarm lock needs to ensure at least "<< alarm_lock_duration_seconds << " seconds of alarm time.";
+				alarmMessage += '\t';
+				alarmMessage += ss.str();
+				ss << std::endl;
+				std::cout << ss.str();
 			}
-			alarmMessage = ss.str();
 			message[clientIP] = alarmMessage;
 			return "alarm_active";
 		}

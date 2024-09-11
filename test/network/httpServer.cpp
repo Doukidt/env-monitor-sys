@@ -54,16 +54,26 @@ namespace ems {
 			}
 			else if (api == "alarm") {
 				std::map<std::string, std::string> message = alarmModule::getInstance().getAlarmMessage();
-				ss << "{ ";
-				auto it = message.begin();
-				while (it != message.end()) {
-					ss << "\"ip\": \"" << it->first << "\", \"message\": \"" << it->second << "\"";
-					++it;
-					if (it != message.end()) {
+				ss << "{ \"message\": {";
+				auto itm = message.begin();
+				while (itm != message.end()) {
+					ss << "\""+ itm->first + "\": \"" << itm->second << "\"";
+					++itm;
+					if (itm != message.end()) {
 						ss << ", ";
 					}
 				}
-				ss << " }";
+				ss << " }, \"threshold\": {";
+				static std::unordered_map<std::string, double> threshold = alarmModule::getInstance().getThreshold();
+				auto itt = threshold.begin();
+				while (itt != threshold.end()) {
+					ss << "\""+ itt->first +  "\": \"" << itt->second << "\"";
+					++itt;
+					if (itt != threshold.end()) {
+						ss << ", ";
+					}
+				}
+				ss << "} }";
 			}
 			else {
 				ss << "'Invaild api'";
