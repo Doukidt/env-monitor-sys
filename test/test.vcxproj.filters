@@ -13,10 +13,63 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\db">
+      <UniqueIdentifier>{bc07f37c-1fe7-414a-bf65-0d31f437f2ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\db">
+      <UniqueIdentifier>{552ff118-1cb5-4d45-8b30-33e6b489eb18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\network">
+      <UniqueIdentifier>{32959080-8c13-4ce6-9108-c3beb6868808}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\network">
+      <UniqueIdentifier>{ae416655-e0d6-4ca2-bc21-357177a2f044}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\esys">
+      <UniqueIdentifier>{b4e1afa4-2e96-4f02-8ef9-2cbce109168e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\esys">
+      <UniqueIdentifier>{3dd95d13-ad32-4d41-8eb9-8bc2c2e0c85f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="db\dbTools.cpp">
+      <Filter>源文件\db</Filter>
+    </ClCompile>
+    <ClCompile Include="network\tcpConnector.cpp">
+      <Filter>源文件\network</Filter>
+    </ClCompile>
+    <ClCompile Include="esys\esysControl.cpp">
+      <Filter>源文件\esys</Filter>
+    </ClCompile>
+    <ClCompile Include="esys\alarmModule.cpp">
+      <Filter>源文件\esys</Filter>
+    </ClCompile>
+    <ClCompile Include="network\httpServer.cpp">
+      <Filter>源文件\network</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="db\dbTools.h">
+      <Filter>头文件\db</Filter>
+    </ClInclude>
+    <ClInclude Include="network\tcpConnector.h">
+      <Filter>头文件\network</Filter>
+    </ClInclude>
+    <ClInclude Include="esys\esysControl.h">
+      <Filter>头文件\esys</Filter>
+    </ClInclude>
+    <ClInclude Include="esys\alarmModule.h">
+      <Filter>头文件\esys</Filter>
+    </ClInclude>
+    <ClInclude Include="network\httpServer.h">
+      <Filter>头文件\network</Filter>
+    </ClInclude>
+    <ClInclude Include="network\httplib.h">
+      <Filter>头文件\network</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

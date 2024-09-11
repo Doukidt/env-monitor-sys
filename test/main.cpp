@@ -1,6 +1,7 @@
-﻿#include <iostream>
+﻿#include "esys/esysControl.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	ems::esysControl& esys = ems::esysControl::getInstance();
+	return esys.sysRun();
 }
