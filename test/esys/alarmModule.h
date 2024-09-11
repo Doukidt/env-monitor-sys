@@ -39,6 +39,7 @@ namespace ems {
 		}
 
 		std::map<std::string, std::string> getAlarmMessage();
+		std::unordered_map<std::string, double> getThreshold();
 	};
 } // namespace ems
 

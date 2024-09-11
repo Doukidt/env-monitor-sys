@@ -30,7 +30,7 @@
       <!-- 动态生成列，并加粗显示所有以 'Val' 结尾的数据 -->
       <el-table-column v-for="col in dynamicColumns" :key="col.prop" :prop="col.prop" :label="col.label">
         <template #default="{ row }">
-          <span :style="{ fontWeight: col.bold ? 'bold' : 'normal' }">{{ row[col.prop] }}</span>
+          <span :style="getCellStyle(row[col.prop], col.prop)">{{ row[col.prop] }}</span>
         </template>
       </el-table-column>
       <el-table-column prop="note" label="Notes" />
@@ -82,6 +82,9 @@ const store = useStore();
 let intervalId: ReturnType<typeof setInterval>;
 let lastEid: string | null = null; // 存储上一次获取的数据的eid
 
+// 获取阈值
+const thresholds = computed(() => store.getters.thresholds);
+
 // 计算分页数据
 const paginatedData = computed(() => {
   const start = (currentPage.value - 1) * pageSize.value;
@@ -107,6 +110,16 @@ const generateDynamicColumns = (data: any) => {
     }
   }
   dynamicColumns.value = columns;
+};
+
+// 获取单元格样式
+const getCellStyle = (value: any, key: string) => {
+  const thresholdKey = key.replace(/Val$/, ''); // 去掉 'Val' 后缀得到阈值的键
+  const threshold = thresholds.value[thresholdKey]; // 获取阈值
+  if (threshold && value > parseFloat(threshold)) { // 判断是否超出阈值
+    return { color: 'red' }; // 超出阈值则设置字体颜色为红色
+  }
+  return {};
 };
 
 // 模拟获取数据
@@ -180,7 +193,6 @@ watch(() => store.getters.selectedDeviceIp, (newIp) => {
   }
 });
 </script>
-
 
 <style scoped>
 /* 样式代码保持不变 */

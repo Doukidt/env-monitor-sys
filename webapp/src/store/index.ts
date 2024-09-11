@@ -15,11 +15,12 @@ export default createStore({
         {
           name: 'Table',
           path: '/table',
-          icon: Document
+          icon: Document,
         }
       ],
       selectedDeviceIp: 'Select An IP', // 选中的设备 IP 默认值
       intervalTime: 3000, // 数据刷新时间间隔（以毫秒为单位）
+      thresholds: {} // 以键值对方式存放，存放的数据数量不确定
     };
   },
 
@@ -32,6 +33,9 @@ export default createStore({
     },
     setIntervalTime(state, time: number) { // 更新时间间隔
       state.intervalTime = time;
+    },
+    setThresholds(state, thresholds: { temperature: string; humidity: string; smoke: string }) { // 设置报警阈值
+      state.thresholds = thresholds;
     },
   },
 
@@ -56,6 +60,9 @@ export default createStore({
     },
     intervalTime(state) { // 获取当前时间间隔
       return state.intervalTime;
+    },
+    thresholds(state) { // 获取报警阈值
+      return state.thresholds;
     },
   },
 });

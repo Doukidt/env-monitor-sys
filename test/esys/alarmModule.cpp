@@ -128,4 +128,9 @@ namespace ems {
 		return message;
 	}
 
+	std::unordered_map<std::string, double> alarmModule::getThreshold()
+	{
+		return threshold;
+	}
+
 } // namespace ems

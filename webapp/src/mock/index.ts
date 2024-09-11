@@ -12,10 +12,17 @@ const data = Mock.mock({
     '192.168.0.2',
     '192.168.156.77'
   ],
-  'alarm': {
-    '127.0.0.1':"[alarmModule]: No collected data exceeds the threshold, but the alarm lock needs to ensure at least 60 seconds of alarm time.",
-    '192.168.0.2':"[alarmModule]: smokeVal is at 2000, which is should be under 2000.\n[alarmModule]: smokeVal is at 2000, which is should be under 2000."
+  'alarm': { 
+    "message": {
+      '127.0.0.1':"[alarmModule]: No collected data exceeds the threshold, but the alarm lock needs to ensure at least 60 seconds of alarm time.",
+      '192.168.0.2':"[alarmModule]: smokeVal is at 2000, which is should be under 2000.\n[alarmModule]: smokeVal is at 2000, which is should be under 2000."
+    },
+    "threshold": {
+      "temperature": "20.0",
+      "humidity": "42.0",
+      "smoke": "1000"
     }
+  }
   });
 
 const API_BASE_URL = `${window.location.origin}/api`;
