@@ -49,7 +49,7 @@
 1. 安装Visual Studio 2022（以下简称VS），这是Microsoft提供的一个强大的C/C++ IDE工具。
 
 2. 准备`mysql-connector-c++`，这是一个专门为C++程序提供的链接MySQL的工具，[下载链接：MySQL :: Download Connector/C++](https://dev.mysql.com/downloads/connector/cpp/) 
-   ![image-20240911161225982](E:\University\4-1\Code\env-monitor-sys\assets\image-20240911161225982.png)
+   ![image-20240911161225982](assets/image-20240911161225982.png)
    选择下载**Windows(x86, 64-bit)**或者下面的Debug版本，具体下载哪个取决于你在VS中选择生成项目的方法，使用Release生成则选择不带Debug的版本，使用Debug生成则选择带Debug的版本。如果都要用则建议都下载下来。
    下载好后将其保存到`.\lib`下解压缩并保存即可。解压缩后保证命名如下:
 
@@ -63,31 +63,31 @@
 
 3. 使用VS打开`.\env-monitor-sys.sln`，在解决方案资源管理器右键test项目，然后打开属性。
 
-![image-20240911162237095](E:\University\4-1\Code\env-monitor-sys\assets\image-20240911162237095.png)
+![image-20240911162237095](assets/image-20240911162237095.png)
 
 打开属性后，配置属性->常规中**将C++语言标准改到ISO C++17以上**。
 
-![image-20240911162402181](E:\University\4-1\Code\env-monitor-sys\assets\image-20240911162402181.png)
+![image-20240911162402181](assets/image-20240911162402181.png)
 
 配置属性->VC++ 目录中检查外部包含目录和库目录是否如下图所示，**注意检查你的生成方式**！（也就是下图中左上角的配置是Release还是Debug），然后选择正确的目录（我这里使用的是Release，所以选择不带(debug)的数据库连接工具）。**设置完成后一定要点击右下角的应用按钮！**
 
-![image-20240911165554147](E:\University\4-1\Code\env-monitor-sys\assets\image-20240911165554147.png)
+![image-20240911165554147](assets/image-20240911165554147.png)
 
 我在这里也附一张选择Debug生成的设置图片：
-![image-20240911165641382](E:\University\4-1\Code\env-monitor-sys\assets\image-20240911165641382.png)
+![image-20240911165641382](assets/image-20240911165641382.png)
 
 在链接器->输入->附加依赖项中添加`mysqlcppconn.lib`。
 
-![image-20240911163148658](E:\University\4-1\Code\env-monitor-sys\assets\image-20240911163148658.png)
+![image-20240911163148658](assets/image-20240911163148658.png)
 
 退出到解决方案资源管理器，右键点击生成，或者使用顶部的本地Windows调试器：
 
 
-![image-20240911163407065](E:\University\4-1\Code\env-monitor-sys\assets\image-20240911163407065.png)
+![image-20240911163407065](assets/image-20240911163407065.png)
 
 如果出现下面错误:
 
-![image-20240911163906504](E:\University\4-1\Code\env-monitor-sys\assets\image-20240911163906504.png)
+![image-20240911163906504](assets/image-20240911163906504.png)
 
 如果选择的是`Release`方法生成，则将`.\lib\mysql-connector-c++-9.0.0-winx64\lib64`下面的`mysqlcppconn-10-vs14.dll`拷贝到`x64\Release`文件夹下，这里就是VS的生成文件位置。不放心的话建议也把`libcrypto-3-x64.dll`和`libssl-3-x64.dll`也拷贝过去。
 
@@ -95,7 +95,7 @@
 
 > **注意！Release的下的dll拷到Release下，Debug下的dll拷到Debug下，不要弄混了！**
 
-![image-20240911164637803](E:\University\4-1\Code\env-monitor-sys\assets\image-20240911164637803.png)
+![image-20240911164637803](assets/image-20240911164637803.png)
 
 到这里程序就可以运行了。
 
@@ -113,7 +113,7 @@
    ```
 
    项目构建成功的话，如图所示：
-   ![image-20240911165455812](E:\University\4-1\Code\env-monitor-sys\assets\image-20240911165455812.png)
+   ![image-20240911165455812](assets/image-20240911165455812.png)
 
 这时``.\webapp\dist`这个文件夹就是生成的web网页了。我们将其拷贝到刚才的VS生成的.exe文件夹下，这里我选择Release生成，所以也就是说将`.\webapp\dist`拷贝到`.\x64\Release\`下。
 
@@ -141,7 +141,7 @@
    .\test.exe
    ```
 
-   ![image-20240911170403350](E:\University\4-1\Code\env-monitor-sys\assets\image-20240911170403350.png)
+   ![image-20240911170403350](assets/image-20240911170403350.png)
 
 项目成功运行！
 
