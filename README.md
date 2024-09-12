@@ -61,29 +61,29 @@
 
    **如果你下载的是Debug版本的mysql-connector，命名规范务必与上面展示的保持一致！**
 
-3. 使用VS打开`.\env-monitor-sys.sln`，在解决方案资源管理器右键test项目，然后打开属性。
+3. 使用VS打开`.\env-monitor-sys.sln`，在解决方案资源管理器右键env-monitor-sys项目，然后打开属性。
 
-![image-20240911162237095](assets/image-20240911162237095.png)
+![35294aaaf58729dff963f5ee880f670c](assets/image-20240911162237095.png)
 
 打开属性后，配置属性->常规中**将C++语言标准改到ISO C++17以上**。
 
-![image-20240911162402181](assets/image-20240911162402181.png)
+![image-20240912094856323](assets/image-20240912094856323.png)
 
 配置属性->VC++ 目录中检查外部包含目录和库目录是否如下图所示，**注意检查你的生成方式**！（也就是下图中左上角的配置是Release还是Debug），然后选择正确的目录（我这里使用的是Release，所以选择不带(debug)的数据库连接工具）。**设置完成后一定要点击右下角的应用按钮！**
 
-![image-20240911165554147](assets/image-20240911165554147.png)
+![image-20240912094953250](assets/image-20240912094953250.png)
 
 我在这里也附一张选择Debug生成的设置图片：
-![image-20240911165641382](assets/image-20240911165641382.png)
+![image-20240912095033935](assets/image-20240912095033935.png)
 
-在链接器->输入->附加依赖项中添加`mysqlcppconn.lib`。
+在链接器->输入->附加依赖项中添加`mysqlcppconn.lib`。注意这里Debug和Release的配置信息不共享，所以这里如果两个生成方式都用的话都得改。
 
-![image-20240911163148658](assets/image-20240911163148658.png)
+![image-20240912095203341](assets/image-20240912095203341.png)
 
 退出到解决方案资源管理器，右键点击生成，或者使用顶部的本地Windows调试器：
 
 
-![image-20240911163407065](assets/image-20240911163407065.png)
+![image-20240912095246160](assets/image-20240912095246160.png)
 
 如果出现下面错误:
 
@@ -95,7 +95,7 @@
 
 > **注意！Release的下的dll拷到Release下，Debug下的dll拷到Debug下，不要弄混了！**
 
-![image-20240911164637803](assets/image-20240911164637803.png)
+![image-20240912095407662](assets/image-20240912095407662.png)
 
 到这里程序就可以运行了。
 
@@ -138,10 +138,10 @@
 
 2. 启动程序，在`.\x64\Release\`打开终端，输入下面命令:
    ```cmd
-   .\test.exe
+   .\env-monitor-sys.exe
    ```
 
-   ![image-20240911170403350](assets/image-20240911170403350.png)
+   ![image-20240912095449202](assets/image-20240912095449202.png)
 
 项目成功运行！
 
@@ -158,7 +158,7 @@ db_url = tcp://127.0.0.1:3306			#数据库链接的url
 db_user = root							#数据库登录用户名
 db_password = 1234						#数据库登录密码
 db_schema = envdb						#本项目使用的数据库名称
-db_build_dir = ./envdb.sql				#默认建表文件位置，以test.exe的所在目录为根目录
+db_build_file_location = ./envdb.sql	#默认建表文件位置，以env-monitor-sys.exe的所在目录为根目录
 suffix_of_collected_values = Val		#数据库中采集数据的后缀，以应对采集数据类型不一的情况
 # the http server settings	
 hs_host = 127.0.0.1						#http服务器的ip

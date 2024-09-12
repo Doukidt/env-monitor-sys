@@ -72,7 +72,7 @@ namespace ems {
 			"db_user = root",
 			"db_password = 1234",
 			"db_schema = envdb",
-			"db_build_dir = ./envdb.sql",
+			"db_build_file_location = ./envdb.sql",
 			"suffix_of_collected_values = Val",
 			"# the http server settings",
 			"hs_host = 127.0.0.1",

@@ -19,9 +19,9 @@ namespace ems {
 			if (!res->next()) {
 				std::cout << "[dbTools]: Schema '" << schema << "' does not exist. Creating schema..." << std::endl;
 				// 读取并执行 SQL 文件
-				std::ifstream file(build_dir);
+				std::ifstream file(build_file_location);
 				if (!file.is_open()) {
-					throw std::runtime_error("Failed to open SQL file: " + build_dir + " Please make sure the create table file exist.");
+					throw std::runtime_error("Failed to open SQL file: " + build_file_location + " Please make sure the create table file exist.");
 				}
 
 				std::stringstream sqlStream;
@@ -76,7 +76,7 @@ namespace ems {
 		user = esys.getConfig("db_user");
 		password = esys.getConfig("db_password");
 		schema = esys.getConfig("db_schema");
-		build_dir = esys.getConfig("db_build_dir");
+		build_file_location = esys.getConfig("db_build_file_location");
 		log_operations = esys.getConfig("log_operations") == "false" ? false : true;
 
 		// 初始化连接

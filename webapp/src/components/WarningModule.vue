@@ -32,11 +32,11 @@ export default defineComponent({
               title: ip,
               message: String(message),
               type: 'error',
-              duration: 6000, // 延时关闭
+              duration: 5000, // 延时关闭
               offset: 40, // 根据索引设置偏移量
             });
 
-            await delay(500); // 每个通知之间延迟 500 毫秒
+            await delay(300); // 每个通知之间延迟 500 毫秒
           }
         }
       } catch (error) {
@@ -46,7 +46,7 @@ export default defineComponent({
 
     onMounted(() => {
       fetchData(); // 初始加载数据
-      fetchInterval = window.setInterval(fetchData, 10000); // 每 10 秒调用一次 fetchData
+      fetchInterval = window.setInterval(fetchData, 6000); // 每 10 秒调用一次 fetchData
     });
 
     onUnmounted(() => {
