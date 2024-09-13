@@ -213,7 +213,7 @@ while (1)
    项目构建成功的话，如图所示：
    ![image-20240911165455812](assets/image-20240911165455812.png)
 
-这时``.\webapp\dist`这个文件夹就是生成的web网页了。我们将其拷贝到刚才的VS生成的.exe文件夹下，这里我选择Release生成，所以**也就是说将`.\webapp\dist`拷贝到`.\x64\Release\`下**（如果你用Debug生成则拷贝到`.\x64\Debug\`下）。
+这时`.\webapp\dist`这个文件夹就是生成的web网页了。我们将其拷贝到刚才的VS生成的.exe文件夹下，这里我选择Release生成，所以**也就是说将`.\webapp\dist`拷贝到`.\x64\Release\`下**（如果你用Debug生成则拷贝到`.\x64\Debug\`下）。
 
 ### 4.3 构建数据库
 
