@@ -40,7 +40,7 @@
 
 **可用性设计**：程序启动时如果没有配置文件程序会自动用默认配置创建，没有数据库程序也可以通过搜索建表文件进行自动创建，报错信息会显示到控制台和日志文件中，方便排查问题。
 
-**小体量的程序**：主程序的大小不到1000KB，web服务器的大小也不到3MB，在其他windows(10+)平台上可移植，未来会做linux的移植。
+**小体量的程序**：主程序的大小不到500KB，web服务器的大小也不到3MB，在其他windows(10+)平台上可移植，未来会做linux的移植。
 
 ## 3. 成果展示
 
@@ -249,26 +249,26 @@ while (1)
 
 ```ini
 # tcp server's ip address and port
-tcp_server_ip = 127.0.0.1				#tcp服务器的ip
-tcp_server_port = 8080					#tcp服务器的端口号
+tcp_server_ip = 127.0.0.1	#tcp服务器的ip
+tcp_server_port = 8080	#tcp服务器的端口号
 # the database settings
-db_url = tcp://127.0.0.1:3306			#数据库链接的url
-db_user = root							#数据库登录用户名
-db_password = 1234						#数据库登录密码
-db_schema = envdb						#本项目使用的数据库名称
+db_url = tcp://127.0.0.1:3306	#数据库链接的url
+db_user = root	#数据库登录用户名
+db_password = 1234	#数据库登录密码
+db_schema = envdb	#本项目使用的数据库名称
 db_build_file_location = ./envdb.sql	#默认建表文件位置，以env-monitor-sys.exe的所在目录为根目录
-suffix_of_collected_values = Val		#数据库中采集数据的后缀，以应对采集数据类型不一的情况
+suffix_of_collected_values = Val	#数据库中采集数据的后缀，以应对采集数据类型不一的情况
 # the http server settings	
-hs_host = 127.0.0.1						#http服务器的ip
-hs_port = 5050							#http服务器的端口号
-hs_mount_dir = ./dist					#http服务器的静态目录，也就是我们使用vue生成的dist文件夹
+hs_host = 127.0.0.1	#http服务器的ip
+hs_port = 5050	#http服务器的端口号
+hs_mount_dir = ./dist	#http服务器的静态目录，也就是我们使用vue生成的dist文件夹
 # alarm program settings
 prefix_of_threshold_value = threshold_	#设有阈值的数据在本文件中的前缀，原因同上
-threshold_temperature = 38.0			#温度的阈值，超过阈值则会激活报警模块
+threshold_temperature = 38.0	#温度的阈值，超过阈值则会激活报警模块
 threshold_humidity = 40.0
-threshold_smoke = 						#留空或者干脆不写这说明没有设阈值
+threshold_smoke = 	#留空或者干脆不写这说明没有设阈值
 alarm_lock_duration_seconds = 60
 # log settings
-log_operations = false					#日志选项，false则会关闭对普通的tcp收到请求和数据库查询的结果在日志上的输出，还控制台一片宁静ヽ(￣▽￣)ﾉ
+log_operations = false	#日志选项，false则会关闭对普通的tcp收到请求和数据库查询的结果在日志上的输出，还控制台一片宁静ヽ(￣▽￣)ﾉ
 ```
 
